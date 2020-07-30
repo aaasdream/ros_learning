@@ -17,3 +17,6 @@ sudo apt install python-rosdep
 sudo rosdep init
 rosdep update
 ```
+#
+建立工作環境
+http://wiki.ros.org/ROS/Tutorials/CreatingPackage

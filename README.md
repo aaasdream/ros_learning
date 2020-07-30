@@ -1,7 +1,7 @@
 # ros_learning
 ROS
 
-＃安裝ROS
+# 安裝ROS
 http://wiki.ros.org/kinetic/Installation/Ubuntu
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -17,6 +17,28 @@ sudo apt install python-rosdep
 sudo rosdep init
 rosdep update
 ```
-#
-建立工作環境
+# 建立工作環境
 http://wiki.ros.org/ROS/Tutorials/CreatingPackage
+'''
+建立資料夾與src
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+cd ~/catkin_ws/
+catkin_make
+source devel/setup.bash
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+'''
+# 建立套件
+'''
+catkin_create_pkg 套件名稱 std_msgs rospy roscpp
+cd ~/catkin_ws
+catkin_make
+'''
+
+
+
+
+
+
+

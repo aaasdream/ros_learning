@@ -29,11 +29,22 @@ catkin_make
 source devel/setup.bash
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
+安裝Gazebo
+```
+sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
+啟動
+roscore
+rosrun gazebo_ros gazebo
+```
+
+
+
 # 建立套件
 ```
 catkin_create_pkg 套件名稱 std_msgs rospy roscpp
 cd ~/catkin_ws
 catkin_make
+source devel/setup.bash
 ```
 
 

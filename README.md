@@ -35,6 +35,9 @@ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
 啟動
 roscore
 rosrun gazebo_ros gazebo
+
+gazobo 於vmware中黑屏的時候
+echo "export SVGA_VGPU10=0" >> ~/.bashrc
 ```
 
 

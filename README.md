@@ -47,7 +47,25 @@ catkin_make
 
 # Install  Cartographer ROS for TurtleBots
 https://google-cartographer-ros-for-turtlebots.readthedocs.io/en/latest/
-
+https://www.cnblogs.com/sea-stream/p/9799705.html
+```
+这里使用的是hitcm（张明明）的github地址，由于google官方的教程需要FQ下载一些文件，因此容易失败，经验证hitcm（张明明）对原文件进行了少许修改后可以成功安装，在他的修改中核心代码不变，只修改了编译文件。
+We recommend using wstool and rosdep. For faster builds, we also recommend using Ninja.
+# Install wstool and rosdep.
+sudo apt-get update
+sudo apt-get install -y python-wstool python-rosdep ninja-build
+# Create a new workspace in 'catkin_ws'.
+mkdir catkin_ws
+cd catkin_ws
+wstool init src
+# 下载到catkin_ws下面的src文件夹下面
+cd src
+git clone https://github.com/hitcm/cartographer_ros.git
+# 然后到catkin_ws下面运行catkin_make安装
+cd
+cd catkin_ws
+catkin_make，可能会报以下错误：Fatal error: pcl/conversions.h: No such file or directory.，执行sudo apt-get install ros-indigo-pcl-conversions，再次catkin_make即可
+```
 
 
 

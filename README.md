@@ -36,8 +36,11 @@ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
 roscore
 rosrun gazebo_ros gazebo
 
-gazobo 於vmware中黑屏的時候
-echo "export SVGA_VGPU10=0" >> ~/.bashrc
+ubount 18 vmware中黑屏幕先執行
+export SVGA_VGPU10=0
+ubount 16.04 啟動黑屏幕改用以下啟動
+gazebo --verbose
+
 ```
 
 

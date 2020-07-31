@@ -22,3 +22,28 @@ https://answers.ros.org/question/188606/cmake-error-with-move_base_msgs/
 cd ~/ros_catkin_ws/src
 git clone https://github.com/ros-planning/navigation_msgs.git
 ```
+
+
+```
+SUMMARY
+========
+
+PARAMETERS
+ * /mrobot_teleop/scale_angular: 0.4
+ * /mrobot_teleop/scale_linear: 0.1
+ * /rosdistro: melodic
+ * /rosversion: 1.14.6
+
+NODES
+  /
+    mrobot_teleop (mrobot_teleop/mrobot_teleop.py)
+
+ROS_MASTER_URI=http://localhost:11311
+
+ERROR: cannot launch node of type [mrobot_teleop/mrobot_teleop.py]: Cannot locate node of type [mrobot_teleop.py] in package [mrobot_teleop]. Make sure file exists in package path and permission is set to executable (chmod +x)
+```
+
+# 解法 將scripts中的mrobot_teleop.py chmod +x mrobot_teleop.py
+```
+~/catkin_ws/src/mrobot_teleop/scripts$ chmod +x mrobot_teleop.py 
+```

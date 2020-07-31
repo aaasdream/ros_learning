@@ -37,6 +37,16 @@ catkin_make
 ```
 
 
+# make robot
+```
+catkin_create_pkg RobotNAME_description urdf xacro
+cd ~/catkin_ws
+catkin_make
+```
+
+
+# Install  Cartographer ROS for TurtleBots
+https://google-cartographer-ros-for-turtlebots.readthedocs.io/en/latest/
 
 
 

@@ -33,8 +33,7 @@ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
 啟動
-roscore
-rosrun gazebo_ros gazebo
+gazebo
 
 ubount 18 vmware中黑屏幕先執行
 export SVGA_VGPU10=0

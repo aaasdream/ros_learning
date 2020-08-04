@@ -83,6 +83,25 @@ cd catkin_ws
 catkin_make，可能会报以下错误：Fatal error: pcl/conversions.h: No such file or directory.，执行sudo apt-get install ros-indigo-pcl-conversions，再次catkin_make即可
 ```
 
+# 遠端主機
+## 加入~/.bashrc
+```
+#遠端主機
+export ROS_HOSTNAME=192.168.1.33
+export ROS_MASTER_URI=http://192.168.1.33:11311
+
+#遠端Client
+export ROS_HOSTNAME=192.168.1.35
+export ROS_MASTER_URI=http://192.168.1.33:11311
+```
+
+# 話題觀看
+rostopic list
+rostopic echo [主題]
+
+
+
+
 
 
 

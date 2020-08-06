@@ -103,6 +103,16 @@ rostopic echo [主題]
 
 
 
+# 樹梅派4 安裝cattographer
+## 作業系統請選擇這個
+```
+https://downloads.ubiquityrobotics.com/pi.html
+```
+跟著如下網址進行即可，需要時間約為兩個小時
+```
+https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html#building-installation
+```
+
 
 
 

@@ -120,7 +120,7 @@ https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html#buildi
 ## 安裝完成之後 將啟動指令加入 ~/.bashrc
 ```
 sudo nano ~/.bashrc
-source /home/ubuntu/catkin_ws/install_isolated/setup.bash
+source ~/catkin_ws/install_isolated/setup.bash
 ```
 
 ## 下載與執行demo 

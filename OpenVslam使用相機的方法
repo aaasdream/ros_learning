@@ -1,0 +1,115 @@
+# 校正相機 
+### 我的OSworkspace放在 ~/catkin_ws
+### 校正相機 注意這裡使用的是 melodic，如果ROS不是melodic 需要修改melodic的關鍵字
+### 參考 https://www.itread01.com/content/1544662809.html
+```
+sudo apt-get install ros-melodic-usb-cam
+cd ~/catkin_ws/src/
+git clone https://github.com/ros-drivers/usb_cam.git
+cd ..
+catkin_make
+cd ~/catkin_ws/src/usb-cam/launch
+roslaunch usb_cam-test.launch
+```
+
+# 執行執行，通常已經內建，如果沒有內建在執行下面的安裝
+```
+rosrun camera_calibration cameracalibrator.py --size 7x5 --square 0.018 image:=/usb_cam/image_raw camera:=/usb_cam
+```
+# 安裝camera_calibration
+#下載git clone https://github.com/ros-perception/image_pipeline
+#只需要camera_calibration資料夾的資料而已
+
+
+```
+cd ~/Downloads
+git clone https://github.com/ros-perception/image_pipeline
+cp -r ~/Downloads/image_pipeline/camera_calibration ~/catkin_ws/src/
+cd ~/catkin_ws
+catkin_make
+rosrun camera_calibration cameracalibrator.py --size 7x5 --square 0.018 image:=/usb_cam/image_raw camera:=/usb_cam
+```
+
+
+ros效正的檔案如下 需要轉換成openslam 的格式
+```
+image_width: 640
+image_height: 480
+camera_name: head_camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [637.3205426242515, 0, 301.5858920587378, 0, 635.571487954951, 252.5810960469521, 0, 0, 1]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.03000744518158967, -0.1129263970227863, 0.003859700070708065, -0.00735299016838372, 0]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [636.8908081054688, 0, 297.5955559882877, 0, 0, 638.7260131835938, 253.9504927354064, 0, 0, 0, 1, 0]
+```
+
+這是openvslam  perspective yaml的格式
+```
+Camera.name: "camera name"
+Camera.setup: "monocular"
+Camera.model: "perspective"
+
+Camera.fx: 637.3205426242515
+Camera.fy: 635.571487954951
+Camera.cx: 301.5858920587378
+Camera.cy: 252.5810960469521
+
+Camera.k1: 0.03000744518158967
+Camera.k2: -0.1129263970227863
+Camera.p1: 0.003859700070708065
+Camera.p2: -0.00735299016838372
+Camera.k3: 0
+
+Camera.fps: 30
+Camera.cols: 640
+Camera.rows: 480
+Camera.color_order: "RGB"
+```
+Camera.setup  可選 monocular, stereo, RGBD
+Camera.model  可選 perspective, fisheye, equirectangular
+Camera.fx參數由ros 校正數據取出
+camera_matrix:
+
+data: [Camera.fx, 0, Camera.cx, 0, Camera.fy, Camera.cy, 0, 0, 1] 
+
+Camera.k1參數由ros 校正數據取出
+
+distortion_coefficients:
+data: [Camera.k1, Camera.k2, Camera.p1, Camera.p2, Camera.k3]
+
+
+效正完成之後
+cd /openvslam/build/
+./run_camera_slam -v /home/aking/Desktop/demo/orb_vocab/orb_vocab.dbow2 -c /home/aking/Desktop/demo/aking.yaml -n 0
+-v 給予orb_vocab.dbow2
+-c 相機的校正設定
+-n 相機於PC中的序號 通常為0 除非你有兩台相機
+```
+# download an ORB vocabulary from Google Drive
+FILE_ID="1wUPb328th8bUqhOk-i8xllt5mgRW4n84"
+curl -sc /tmp/cookie "https://drive.google.com/uc?export=download&id=${FILE_ID}" > /dev/null
+CODE="$(awk '/_warning_/ {print $NF}' /tmp/cookie)"
+curl -sLb /tmp/cookie "https://drive.google.com/uc?export=download&confirm=${CODE}&id=${FILE_ID}" -o orb_vocab.zip
+unzip orb_vocab.zip
+```
+
+
+
+
+
+
+
+
+

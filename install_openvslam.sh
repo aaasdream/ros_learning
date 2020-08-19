@@ -1,3 +1,13 @@
+#!/bin/bash
+# 這是自動安裝openvslam 安裝在~/openvslam_pkg/openvslam/build 下面
+# glew-2.1.0
+# eigen-3.3.7
+# g2o
+# opencv 3.4.5
+# Pangolin
+# openvslam
+
+
 sudo apt-get update
 sudo apt-get install -y build-essential pkg-config cmake git wget curl unzip
 sudo apt-get install -y libatlas-base-dev libsuitesparse-dev

@@ -9,7 +9,6 @@ sudo apt install ros-melodic-desktop-full
 echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
 source /opt/ros/melodic/setup.bash
 sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
-sudo apt install python-rosdep
 sudo rosdep init
 rosdep update
 
@@ -23,7 +22,7 @@ source devel/setup.bash
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 
 
-sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
+sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control
 #啟動
 gazebo
 

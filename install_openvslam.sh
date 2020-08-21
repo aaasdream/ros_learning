@@ -144,13 +144,10 @@ make -j2
 echo "ROS Package"
 sudo apt install -y ros-${ROS_DISTRO}-image-transport
 
-mkdir ~/catkin_openvslam_ws
-cd ~/catkin_openvslam_ws
+cd ~/catkin_openvslam_ws/openvslam/ros
 git clone --branch ${ROS_DISTRO} --depth 1 https://github.com/ros-perception/vision_opencv.git
 cp -r vision_opencv/cv_bridge src/
 rm -rf vision_opencv
-
-cd ~/catkin_openvslam_ws
 
 #PangolinViewer
 catkin_make \
@@ -160,8 +157,8 @@ catkin_make \
     -DUSE_STACK_TRACE_LOGGER=ON \
     -DBOW_FRAMEWORK=DBoW2
 
-echo "source ~/catkin_openvslam_ws/devel/setup.bash" >> ~/.bashrc
-source ~/catkin_openvslam_ws/devel/setup.bash
+echo "source ~/catkin_openvslam_ws/openvslam/ros/devel/setup.bash" >> ~/.bashrc
+source ~/catkin_openvslam_ws/openvslam/ros/devel/setup.bash
 
 
 

@@ -1,3 +1,17 @@
+#!/bin/bash
+#這是安裝PC版本的Cartographer
+# os : ubuntu 18.04
+# ros : melodic
+# 安裝路徑 ~/catkin_google_ws
+
+# 注意事項 請在安裝openvslam之前安裝，
+# 執行即可 不需要任何參數不需要權限，安裝過程會詢問最高權限密碼
+
+# 官方安裝教學網址
+#  https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html#building-installation
+
+
+
 sudo apt-get update
 sudo apt-get install -y python-wstool python-rosdep ninja-build
 

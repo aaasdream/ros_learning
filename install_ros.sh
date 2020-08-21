@@ -20,7 +20,7 @@ cd ~/catkin_ws/
 catkin_make
 source devel/setup.bash
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-
+source ~/catkin_ws/devel/setup.bash
 
 sudo apt-get install -y ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control
 
@@ -30,5 +30,4 @@ sudo apt-get install -y ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-contr
 
 #啟動
 gazebo
-
 

@@ -1,0 +1,25 @@
+sudo apt-get update
+sudo apt-get install -y python-wstool python-rosdep ninja-build
+
+mkdir catkin_google_ws
+cd catkin_google_ws
+wstool init src
+wstool merge -t src https://raw.githubusercontent.com/cartographer-project/cartographer_ros/master/cartographer_ros.rosinstall
+wstool update -t src
+
+src/cartographer/scripts/install_proto3.sh
+sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src --rosdistr==${ROS_DISTRO} -y -i -r
+catkin_make_isolated --install --use-ninja
+
+source install_isolated/setup.bash
+echo "source ~/catkin_google_ws/install_isolated/setup.bash" >> ~/.bashrc
+
+echo "Download and run demo."
+wget -P ~/Downloads https://storage.googleapis.com/cartographer-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag
+roslaunch cartographer_ros demo_backpack_2d.launch bag_filename:=${HOME}/Downloads/cartographer_paper_deutsches_museum.bag
+
+
+
+

@@ -14,7 +14,7 @@
 
 sudo apt-get update
 sudo apt-get install -y python-wstool python-rosdep ninja-build
-
+cd ~
 mkdir catkin_google_ws
 cd catkin_google_ws
 wstool init src

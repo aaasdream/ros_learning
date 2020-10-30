@@ -1,0 +1,4 @@
+使用arbotix_gui遙控器
+sudo apt-get install ros-melodic-arbotix-*
+sudo apt-get install ros-melodic-joystick-drivers
+sudo apt-get install joystick
